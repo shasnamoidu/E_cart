@@ -1,4 +1,4 @@
-import 'package:e_cart/features/authentications/screens/sigupScreen/verifyEmail.dart';
+import 'package:e_cart/features/authentications/screens/verifications/verifyEmail.dart';
 import 'package:e_cart/utils/constants/colors.dart';
 import 'package:e_cart/utils/constants/image_string.dart';
 import 'package:e_cart/utils/constants/sizes.dart';
