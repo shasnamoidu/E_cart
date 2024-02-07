@@ -1,10 +1,10 @@
+import 'package:e_cart/bottom_navigation.dart';
 import 'package:e_cart/common/styles/spacing_style.dart';
 import 'package:e_cart/features/authentications/screens/sigupScreen/signup.dart';
 import 'package:e_cart/features/authentications/screens/verifications/forgotPassword.dart';
 import 'package:e_cart/utils/constants/colors.dart';
 import 'package:e_cart/utils/constants/image_string.dart';
 import 'package:e_cart/utils/constants/sizes.dart';
-import 'package:e_cart/utils/constants/text_string.dart';
 import 'package:e_cart/utils/helpers/helper_function.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -93,9 +93,7 @@ class LoginScreen extends StatelessWidget {
                       //sing in button
                       SizedBox(width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {
-                            
-                          }, child: const Text('signIn')),
+                          onPressed: () => Get.to(BottomNavigation()), child: const Text('signIn')),
                       ),
                       const SizedBox(
                         height: Sizess.spaceBtwItems,
