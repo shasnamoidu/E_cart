@@ -1,7 +1,11 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_cart/common/widgets/appdar/appbar.dart';
+import 'package:e_cart/common/widgets/containers/PromoImage.dart';
+import 'package:e_cart/common/widgets/containers/circularContainer.dart';
 import 'package:e_cart/common/widgets/containers/curved_edges.dart';
 import 'package:e_cart/common/widgets/containers/imageCategory.dart';
 import 'package:e_cart/common/widgets/containers/search_container.dart';
+import 'package:e_cart/common/widgets/containers/swipeContainer.dart';
 import 'package:e_cart/common/widgets/text/sectionHeader.dart';
 import 'package:e_cart/utils/constants/colors.dart';
 import 'package:e_cart/utils/constants/sizes.dart';
@@ -26,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                 color: Colorss.primary,
                 // padding: const EdgeInsets.all(0),
                 child: SizedBox(
-                  height: 400,
+                  height: 320,
                   child: Stack(
                     children: [
                       Positioned(
@@ -76,36 +80,12 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
+
+                            ////cart bag
                             actions: [
-                              Stack(
-                                children: [
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(Icons.shopping_cart)),
-                                  Positioned(
-                                    right: 0,
-                                    child: Container(
-                                      width: 18,
-                                      height: 18,
-                                      decoration: BoxDecoration(
-                                          color: Colorss.black.withOpacity(0.5),
-                                          borderRadius:
-                                              BorderRadius.circular(100)),
-                                      child: Center(
-                                        child: Text(
-                                          '2',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .labelLarge!
-                                              .apply(
-                                                  color: Colorss.white,
-                                                  fontSizeFactor: 0.9),
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              )
+                                CircularContainer(margin: null, onPressed: (){},
+                                backgroundColor: Colorss.white,)
+                              
                             ],
                           ),
 
@@ -140,7 +120,7 @@ class HomeScreen extends StatelessWidget {
                                   textColor: Colorss.white,
                                   title: 'shoes catgry',
                                   backgroundColor: null,
-                                  onTap: (){},
+                                  onTap: () {},
                                 );
                               },
                             ),
@@ -151,10 +131,75 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
+
+            ////body
+            Padding(
+              padding: const EdgeInsets.all(Sizess.defaultSpace),
+              child: Column(
+                children: [
+                  CarouselSlider(
+                    options: CarouselOptions(
+                    viewportFraction: 1,
+                  ),
+                    items: [
+                    PromoImage(
+                    imageurl: "assets/images/Promo_banner/shoes.png",
+                    applyImageRadius: true,
+                    backgroundColor: Colorss.light,
+                    isNetworkImage: false,
+                    borderRadius: 20,
+                    width: 300,
+                    height: 150,
+                    fit: BoxFit.cover,
+                  ),
+                  PromoImage(
+                    imageurl: "assets/images/Promo_banner/zara.jpeg",
+                    applyImageRadius: true,
+                    backgroundColor: Colorss.light,
+                    isNetworkImage: false,
+                    borderRadius: 20,
+                    width: 300,
+                    height: 150,
+                    fit: BoxFit.cover,
+                  ),
+                  PromoImage(
+                    imageurl: "assets/images/Promo_banner/hoodie.jpg",
+                    applyImageRadius: true,
+                    backgroundColor: Colorss.light,
+                    isNetworkImage: false,
+                    borderRadius: 20,
+                    width: 300,
+                    height: 150,
+                    fit: BoxFit.cover,
+                  ),
+                    ]
+                  ),
+                  SizedBox(height: Sizess.spaceBtwItems,),
+                  Row(
+                    children: [
+                      for(int i =0; i<3; i++ )
+                      const SwipeContainer(
+                        width: 20,
+                        height: 4,
+                        margin: EdgeInsets.only(right: 10),
+                        backgroundColor: Colors.blue,)
+                      
+                    ],
+                  )
+                   
+                  
+                  
+                ],
+              )
+
+             
+            ),
+            
           ],
         ),
       ),
     );
   }
 }
+
